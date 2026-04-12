@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>SolarCache — Mine sunlight. Sell intelligence.</title>
+<meta name="description" content="SolarCache converts residential solar surplus into pre-computed AI inference caches — a peer-to-peer marketplace where cache hits earn you money." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<canvas id="particles"></canvas>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="#top"><span class="sun-dot"></span> SOLARCACHE</a>
+    <a class="nav-cta" href="#waitlist">Join Waitlist</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="top" class="hero">
+  <div class="solar-flare"></div>
+  <div class="hero-inner">
+    <h1 class="hero-headline" id="hero-headline"></h1>
+    <p class="hero-sub fade-in-delay">You just haven't been paid for it.</p>
+    <div class="hero-flow fade-in-delay-2">
+      <span class="flow-icon">☀️</span>
+      <span class="flow-line"></span>
+      <span class="flow-icon">⚡</span>
+      <span class="flow-line"></span>
+      <span class="flow-icon">🧠</span>
+      <span class="flow-line"></span>
+      <span class="flow-icon">💶</span>
+    </div>
+    <a href="#waitlist" class="cta-glow fade-in-delay-2">Join the Waitlist →</a>
+  </div>
+  <div class="scroll-chevron">⌄</div>
+</section>
+
+<!-- THE NUMBER -->
+<section class="number-section reveal">
+  <div class="circuit-bg"></div>
+  <div class="container narrow center">
+    <div class="counter-giant" data-target="4" data-suffix="×">1.0×</div>
+    <p class="caption">more value extracted from your solar energy than Einspeisung</p>
+    <p class="footnote">Based on GPU prefill compute value vs. grid feed-in tariff (8 ct/kWh, DE 2024).</p>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how-section reveal">
+  <div class="container">
+    <h2 class="section-title">How it works</h2>
+    <p class="section-sub">Three acts. One box. Zero grid.</p>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">01</div>
+        <div class="step-icon">☀️</div>
+        <h3>Sun shines</h3>
+        <p>Your panels overproduce. Instead of dumping electrons into the grid for 8 cents, the box wakes its GPU.</p>
+        <div class="progress-bar"><div class="progress-fill"></div></div>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <div class="step-icon">🧠</div>
+        <h3>Prefill runs</h3>
+        <p>llama.cpp pre-computes attention KV caches over public corpora — kernel docs, legal templates, your own code.</p>
+        <div class="token-stream"></div>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <div class="step-icon">⚡</div>
+        <h3>Inference fires</h3>
+        <p>When you ask a question, prefill cost is zero. Time-to-first-token collapses. The compute is already done.</p>
+        <div class="zero-tag">0ms prefill cost</div>
+      </div>
+    </div>
+    <div class="code-block">
+      <div class="code-bar"><span></span><span></span><span></span></div>
+      <pre><code id="typewriter">$ llama-cli --prompt-cache solar.cache --prompt-cache-ro \
+            --model llama-3-8b-q4.gguf \
+            --prompt "explain this stack trace"</code></pre>
+    </div>
+  </div>
+</section>
+
+<!-- ASSET METAPHOR -->
+<section class="asset-section reveal">
+  <div class="container two-col">
+    <div>
+      <h2 class="section-title left">Not a battery.<br/><span class="amber">A prepaid voucher for AI compute.</span></h2>
+      <p class="lead">Batteries store electrons. SolarCache stores <em>thought</em> — the most expensive part of inference, frozen and ready to deploy.</p>
+      <table class="asset-table">
+        <tbody>
+          <tr><td>Creation cost</td><td>Sunlight</td></tr>
+          <tr><td>Storage cost</td><td>~0</td></tr>
+          <tr><td>Value</td><td>Skipped prefill = free inference</td></tr>
+          <tr><td>Depreciation</td><td>Only when the model updates</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="box-3d-wrap">
+      <div class="box-3d">
+        <div class="face front">SOLARCACHE<br/><span>v1</span></div>
+        <div class="face back"></div>
+        <div class="face left"></div>
+        <div class="face right"></div>
+        <div class="face top"></div>
+        <div class="face bottom"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MARKETPLACE -->
+<section class="market-section reveal">
+  <div class="container">
+    <h2 class="section-title center">The first AI compute marketplace<br/><span class="amber">powered entirely by sunlight.</span></h2>
+    <p class="section-sub center">You don't sell energy to the grid. You sell intelligence to the network.</p>
+
+    <div class="map-wrap">
+      <svg class="world" viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <radialGradient id="nodeGlow"><stop offset="0%" stop-color="#ffb547"/><stop offset="100%" stop-color="#ffb54700"/></radialGradient>
+        </defs>
+        <g class="dots" id="map-dots"></g>
+        <g class="nodes" id="map-nodes"></g>
+      </svg>
+      <div class="feed" id="feed">
+        <div class="feed-line">⏳ connecting to network…</div>
+      </div>
+    </div>
+
+    <div class="market-stats">
+      <div class="mstat"><div class="mstat-num" data-target="847" data-prefix="">0</div><div class="mstat-label">Nodes seeding</div></div>
+      <div class="mstat"><div class="mstat-num" data-target="1284392" data-prefix="">0</div><div class="mstat-label">Caches indexed</div></div>
+      <div class="mstat"><div class="mstat-num" data-target="42" data-prefix="€" data-suffix="/mo">0</div><div class="mstat-label">Avg. node earnings</div></div>
+    </div>
+
+    <div class="flow-strip">
+      <span>Your Box</span><span class="arr">→</span>
+      <span>Fingerprint</span><span class="arr">→</span>
+      <span>Network Index</span><span class="arr">→</span>
+      <span>Cache Hit</span><span class="arr">→</span>
+      <span class="amber">€</span>
+    </div>
+
+    <p class="callout">The more nodes, the cheaper inference gets for everyone. Classic flywheel.</p>
+  </div>
+</section>
+
+<!-- PROTOCOL -->
+<section class="protocol-section reveal">
+  <div class="container narrow">
+    <details class="protocol">
+      <summary>How does cache sharing actually work? <span class="chev">▾</span></summary>
+      <ol class="proto-steps">
+        <li><b>Hash</b> — your box hashes the model ID + quantization + prefix tokens.</li>
+        <li><b>Match</b> — the network index returns peers holding that cache.</li>
+        <li><b>Request</b> — your box pulls the KV cache from the nearest peer.</li>
+        <li><b>Verify</b> — cryptographic check ensures bit-exact reproduction.</li>
+        <li><b>Pay</b> — micropayment routes back to the originating seeder.</li>
+        <li><b>Use</b> — inference resumes with prefill cost ~0.</li>
+      </ol>
+      <p class="privacy">🔒 Caches contain no personal data — only public or explicitly shared context. Your private queries never leave your box.</p>
+      <p class="proto-spec">SolarCache protocol spec — coming Q2 2026.</p>
+    </details>
+  </div>
+</section>
+
+<!-- MARKET SIZE -->
+<section class="size-section reveal">
+  <div class="container">
+    <h2 class="section-title center">SolarCache sits at this intersection.</h2>
+    <div class="bigstats">
+      <div class="bigstat"><div class="bigstat-num" data-target="8.4" data-suffix="M">0</div><p>households with surplus solar in Germany alone</p></div>
+      <div class="bigstat"><div class="bigstat-num" data-target="0" data-prefix="€">€0</div><p>of that surplus currently converted to compute value</p></div>
+      <div class="bigstat"><div class="bigstat-num" data-target="100" data-prefix="$" data-suffix="B+">0</div><p>spent globally on AI inference annually</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCT SHOT -->
+<section class="product-section reveal">
+  <div class="container two-col">
+    <div class="product-render">
+      <div class="render-box">
+        <div class="render-glow"></div>
+        <div class="render-led"></div>
+        <div class="render-vent"></div><div class="render-vent"></div><div class="render-vent"></div>
+        <div class="render-label">SOLARCACHE / NODE.01</div>
+      </div>
+      <span class="lbl lbl-1">24GB VRAM</span>
+      <span class="lbl lbl-2">350W peak</span>
+      <span class="lbl lbl-3">llama.cpp native</span>
+      <span class="lbl lbl-4">Home network only</span>
+      <span class="lbl lbl-5">No cloud. No API keys. No bill.</span>
+    </div>
+    <div>
+      <h2 class="section-title left">The box.</h2>
+      <p class="lead">Industrial-grade. Fanless under 200W. Sits next to your Wärmepumpe and quietly converts photons into pre-computed thought.</p>
+      <p class="tagline-quote">"Plug it in. Point it at the sun. Think for free."</p>
+    </div>
+  </div>
+</section>
+
+<!-- WAITLIST -->
+<section id="waitlist" class="waitlist-section reveal">
+  <div class="container narrow center">
+    <h2 class="section-title center">Be first on the roof.</h2>
+    <p class="counter-line"><span id="waitlist-count">847</span> people already waiting.</p>
+    <form class="waitlist-form" onsubmit="return joinWaitlist(event)">
+      <input type="email" required placeholder="you@solar-home.de" id="email-in" />
+      <button type="submit" class="cta-glow">Join Waitlist</button>
+    </form>
+    <p class="ship-note">Shipping to early backers Q3 2026 — Germany &amp; Austria first.</p>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-section reveal">
+  <div class="container narrow">
+    <h2 class="section-title center">Questions people ask.</h2>
+    <details><summary>Does it work without solar?</summary><p>Yes. Off-peak grid pricing works too — anywhere with a meaningful spot/peak delta.</p></details>
+    <details><summary>Which models?</summary><p>Any llama.cpp compatible model, 8B–34B. Quantizations Q4–Q8.</p></details>
+    <details><summary>What if I update my model?</summary><p>Cache rebuild is scheduled automatically at the next solar peak.</p></details>
+    <details><summary>Is this a mining rig?</summary><p>No. It creates no tokens for sale. It reduces your inference cost — and pays you when others reuse what you've already computed.</p></details>
+    <details><summary>How does the marketplace work?</summary><p>Your box fingerprints every prefill and uploads the cache to the SolarCache index. When another node needs the same prefix, they pay a micro-fee. You earn passively.</p></details>
+    <details><summary>What contexts get shared?</summary><p>Only explicitly public or opted-in contexts. Your private queries never leave your box.</p></details>
+    <details><summary>Who sets the price per cache hit?</summary><p>Dynamic pricing based on cache size, token count, and network demand. Real-time earnings visible in your dashboard.</p></details>
+    <details><summary>What stops someone from stealing my cache?</summary><p>Cache hits are cryptographically verified. You get paid per use, not per download.</p></details>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container center">
+    <div class="equation">☀️ <span>+</span> GPU <span>=</span> 🧠</div>
+    <p class="fine">Unit economics: 8 ct/kWh feed-in (DE 2024) vs. ~32 ct/kWh equivalent prefill compute value at retail OpenAI/Anthropic pricing for an RTX 3090–class GPU running llama.cpp 8B Q4. Numbers approximate, model-dependent, and revised quarterly.</p>
+    <div class="footer-links">
+      <a href="#">Whitepaper</a> · <a href="#">GitHub</a> · <a href="mailto:hello@solarcache.io">Contact</a>
+    </div>
+    <p class="origin">Built from a conversation about Wärmepumpen and RTX 3090s.<br/>Sometimes the best product ideas start with: <em>"that's dumb, but wait—"</em></p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
