@@ -3,10 +3,18 @@
 /* ---------- Hero word-by-word ---------- */
 (function heroIn() {
   const el = document.getElementById('hero-headline');
-  const words = ['Your', 'roof', 'is', 'a', 'data', 'center.'];
+  const words = [
+    { t: "Don't", a: false },
+    { t: 'store',  a: false },
+    { t: 'energy.', a: false },
+    { t: 'BR',     a: false },
+    { t: 'Store',  a: true  },
+    { t: 'compute.', a: true },
+  ];
   el.innerHTML = words.map((w, i) => {
-    const cls = (w === 'data' || w === 'center.') ? 'word amber-word' : 'word';
-    return `<span class="${cls}" style="animation-delay:${.15 * i + .2}s">${w}</span>`;
+    if (w.t === 'BR') return '<br/>';
+    const cls = w.a ? 'word amber-word' : 'word';
+    return `<span class="${cls}" style="animation-delay:${.18 * i + .2}s">${w.t}</span>`;
   }).join(' ');
 })();
 

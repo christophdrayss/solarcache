@@ -180,6 +180,7 @@ section { padding: 120px 0; position: relative; }
   margin-top: 24px;
 }
 .footnote { color: var(--ink-dim); font-size: 13px; margin-top: 30px; opacity: .6; }
+.de-note { color: var(--ink-dim); font-style: italic; font-weight: 400; letter-spacing: 0; text-transform: none; font-size: .85em; }
 
 /* HOW */
 .steps {
