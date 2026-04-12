@@ -673,3 +673,63 @@ pre { padding: 24px; color: var(--amber-hot); font-size: 14px; overflow-x: auto;
   .product-render { height: 360px; }
   .lbl { font-size: 10px; }
 }
+
+/* === HARDWARE HERO IMAGE === */
+.hardware-hero { position: relative; padding: 80px 24px; }
+.hardware-hero-inner {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  box-shadow: 0 30px 120px -20px rgba(255,181,71,0.25), 0 0 0 1px rgba(255,181,71,0.08);
+}
+.hardware-hero-inner img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  filter: saturate(1.05) contrast(1.05);
+}
+.hardware-hero-inner::before {
+  content: "";
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(5,6,8,0) 40%, rgba(5,6,8,0.88) 100%);
+  pointer-events: none;
+  z-index: 1;
+}
+.hardware-hero-overlay {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  padding: 36px 40px;
+  z-index: 2;
+}
+.hh-tag {
+  display: inline-block;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--amber);
+  padding: 4px 10px;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  margin-bottom: 14px;
+}
+.hardware-hero-overlay h2 {
+  font-size: clamp(28px, 4vw, 48px);
+  font-weight: 700;
+  line-height: 1.05;
+  margin-bottom: 10px;
+  letter-spacing: -0.02em;
+}
+.hardware-hero-overlay p {
+  color: var(--ink-dim);
+  max-width: 560px;
+  font-size: 16px;
+}
+@media (max-width: 640px) {
+  .hardware-hero { padding: 48px 16px; }
+  .hardware-hero-overlay { padding: 22px 20px; }
+}
