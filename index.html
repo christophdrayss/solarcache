@@ -51,6 +51,65 @@
   </div>
 </section>
 
+<!-- THE MATH -->
+<section class="math-section reveal">
+  <div class="container">
+    <h2 class="section-title center">The math <span class="amber">vs. a home battery.</span></h2>
+    <p class="section-sub center">A 10 kWh surplus day. Same sunlight. Three ways to use it.</p>
+
+    <div class="math-grid">
+      <div class="math-card dim">
+        <div class="math-tag">Option A</div>
+        <h3>Sell to the grid</h3>
+        <div class="math-eq">10 kWh × <span class="amber">€0.08</span> = <b>€0.80</b></div>
+        <ul>
+          <li>Feed-in tariff, Germany 2024.</li>
+          <li>Capex: €0 (already have panels).</li>
+          <li>Payback on this kWh: instant — but tiny.</li>
+        </ul>
+        <div class="math-result">≈ <b>€0.80</b> / surplus day</div>
+      </div>
+
+      <div class="math-card dim">
+        <div class="math-tag">Option B</div>
+        <h3>Store in a home battery</h3>
+        <div class="math-eq">10 kWh × (<span class="amber">€0.32</span> − €0.08) = <b>€2.40</b></div>
+        <ul>
+          <li>Avoided grid import at retail (~32 ct) minus lost feed-in.</li>
+          <li>Capex: <b>€8,000–12,000</b> for a 10 kWh battery.</li>
+          <li>~5,000 cycles × €2.40 ≈ €12k lifetime → break-even, no profit.</li>
+          <li>Stores <em>electrons</em>. Depreciates with calendar age.</li>
+        </ul>
+        <div class="math-result">≈ <b>€2.40</b> / surplus day, <span class="dim">10y payback</span></div>
+      </div>
+
+      <div class="math-card hot">
+        <div class="math-tag amber">Option C — SolarCache</div>
+        <h3>Convert to compute</h3>
+        <div class="math-eq">10 kWh × <span class="amber">~€0.32 equiv.</span> = <b>€3.20</b><span class="plus">+</span></div>
+        <ul>
+          <li>RTX 3090 @ 350W × ~28h ≈ 10 kWh → ~5.6M prefill tokens.</li>
+          <li>At commodity prefill pricing (~$0.05–0.20 per 1M tokens) you produce <b>compute worth ~€3–4</b>.</li>
+          <li>Capex: <b>~€1,800</b> for the box (one-time).</li>
+          <li>Caches earn <b>every time another node reuses them</b> — appreciating asset, not depreciating.</li>
+        </ul>
+        <div class="math-result">≈ <b>€3.20+</b> / surplus day, <span class="amber">~18m payback</span></div>
+      </div>
+    </div>
+
+    <div class="math-callout">
+      <div class="callout-tag">Key insight</div>
+      <p>
+        A battery saves <b>your</b> next kWh.
+        SolarCache produces an <b>asset other people pay to use</b> — over and over.
+        One sunny afternoon can monetize for months.
+      </p>
+    </div>
+
+    <p class="footnote center">Numbers indicative. Actual yield depends on model, quantization, cache popularity, and electricity price spread. Detailed unit economics in the whitepaper.</p>
+  </div>
+</section>
+
 <!-- HOW IT WORKS -->
 <section class="how-section reveal">
   <div class="container">
@@ -68,15 +127,15 @@
         <div class="step-num">02</div>
         <div class="step-icon">🧠</div>
         <h3>Prefill runs</h3>
-        <p>llama.cpp pre-computes attention KV caches over public corpora — kernel docs, legal templates, your own code.</p>
+        <p>llama.cpp pre-computes attention KV caches over <b>public corpora</b> — kernel docs, legal templates, popular codebases. These are network goods, not your private queries.</p>
         <div class="token-stream"></div>
       </div>
       <div class="step">
         <div class="step-num">03</div>
-        <div class="step-icon">⚡</div>
-        <h3>Inference fires</h3>
-        <p>When you ask a question, prefill cost is zero. Time-to-first-token collapses. The compute is already done.</p>
-        <div class="zero-tag">0ms prefill cost</div>
+        <div class="step-icon">💶</div>
+        <h3>Network pays you</h3>
+        <p>Caches are uploaded to the SolarCache index. <b>Every time another node reuses your cache, you earn a micro-fee.</b> You're not building it for yourself — you're seeding it for the world.</p>
+        <div class="zero-tag">€ per cache hit</div>
       </div>
     </div>
     <div class="code-block">
@@ -92,13 +151,14 @@
 <section class="asset-section reveal">
   <div class="container two-col">
     <div>
-      <h2 class="section-title left">Not a battery.<br/><span class="amber">A prepaid voucher for AI compute.</span></h2>
-      <p class="lead">Batteries store electrons. SolarCache stores <em>thought</em> — the most expensive part of inference, frozen and ready to deploy.</p>
+      <h2 class="section-title left">Not a battery.<br/><span class="amber">An income-producing asset.</span></h2>
+      <p class="lead">A battery defers <em>your</em> next kWh. A SolarCache produces <em>compute</em> the entire network buys from you — for months after the sun went down.</p>
       <table class="asset-table">
         <tbody>
           <tr><td>Creation cost</td><td>Sunlight</td></tr>
-          <tr><td>Storage cost</td><td>~0</td></tr>
-          <tr><td>Value</td><td>Skipped prefill = free inference</td></tr>
+          <tr><td>Storage cost</td><td>~0 (cheap SSD)</td></tr>
+          <tr><td>Buyer</td><td>Anyone on the network</td></tr>
+          <tr><td>Earnings</td><td>Per cache hit, in perpetuity</td></tr>
           <tr><td>Depreciation</td><td>Only when the model updates</td></tr>
         </tbody>
       </table>
