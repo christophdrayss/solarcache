@@ -731,5 +731,15 @@ pre { padding: 24px; color: var(--amber-hot); font-size: 14px; overflow-x: auto;
 }
 @media (max-width: 640px) {
   .hardware-hero { padding: 48px 16px; }
-  .hardware-hero-overlay { padding: 22px 20px; }
+  .hardware-hero-inner::before {
+    background: linear-gradient(180deg, rgba(5,6,8,0) 60%, rgba(5,6,8,0.95) 100%);
+  }
+  .hardware-hero-overlay {
+    position: static;
+    padding: 22px 20px 24px;
+    background: #0a0b0d;
+    border-top: 1px solid var(--line);
+  }
+  .hardware-hero-overlay h2 { font-size: 26px; }
+  .hardware-hero-overlay p { font-size: 15px; }
 }
