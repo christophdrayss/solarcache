@@ -675,7 +675,7 @@ pre { padding: 24px; color: var(--amber-hot); font-size: 14px; overflow-x: auto;
 }
 
 /* === HARDWARE HERO IMAGE === */
-.hardware-hero { position: relative; padding: 80px 24px; }
+.hardware-hero { position: relative; padding: 40px 24px 80px; }
 .hardware-hero-inner {
   position: relative;
   max-width: 1200px;
